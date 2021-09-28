@@ -10,27 +10,29 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class writeActivityclass extends AppCompatActivity {
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.write_activity);
     }
 
-    public void btngo(View view) {
-        Intent i = new Intent(writeActivityclass.this,readActivityclass.class);
-
-        TextView tv1 = findViewById(R.id.editTextTextPersonName);
-        String str = tv1.toString();
-        String strpet = findViewById(R.id.editTextTextPersonName2).toString();
-        String date = findViewById(R.id.editTextDate).toString();
-        i.putExtra("FIO", str);
-        i.putExtra("Pet", strpet);
-        i.putExtra("DATE", date);
-        startActivity(i);
-    }
-
     public void btnclose(View view) {
         System.exit(0);
 
+    }
+
+    public void btngoone(View view) {
+        Intent i = new Intent(writeActivityclass.this,readActivityclass.class);
+
+        String str =findViewById(R.id.editTextTextPersonName).toString();
+        String strg = findViewById(R.id.editTextTextPersonName2).toString();
+        String date = findViewById(R.id.editTextDate).toString();
+        i.putExtra("fio", str);
+        i.putExtra("pet", strg);
+        i.putExtra("date", date);
+
+        startActivity(i);
     }
 }

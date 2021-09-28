@@ -9,17 +9,21 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class readActivityclass extends AppCompatActivity {
+    TextView textView =findViewById(R.id.textView);
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read_activity);
-        Bundle extras = getIntent().getExtras();
-        String name = extras.getString("ФИО");
-        String pet = extras.getString("PET");
-        String date = extras.getString("DATE");
-        TextView textView = new TextView(this);
+        Intent intent2 = this.getIntent();
+        String name = intent2.getStringExtra("fio");
+        String pet = intent2.getStringExtra("pet");
+        String date = intent2.getStringExtra("date");
 
         textView.setText("Name: " +name + "\nPet "+ pet + "\nDate "+ date);
+        startActivity(intent2);
+
+
 
 
     }
